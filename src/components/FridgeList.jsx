@@ -1,6 +1,6 @@
 import React from "react";
 import ListDisplay from "./ListDisplay";
 
-const FridgeList = props => <ListDisplay items={props.items} />;
+const FridgeList = props => <ListDisplay items={props.groceries} />;
 
-export default ListDisplay;
+export default FridgeList;

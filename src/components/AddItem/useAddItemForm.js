@@ -4,7 +4,7 @@ const useAddItemForm = callback => {
   const initialFormState = {
     name: "",
     amount: 1,
-    fridge: "Fridge 1"
+    fridge: ""
   };
 
   const [formData, setFormData] = useState(initialFormState);

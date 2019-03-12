@@ -1,13 +1,12 @@
 import React from "react";
-import AddItemForm from "../components/AddItem/AddItemForm";
+import ListContainer from "./ListContainer";
+import AddItem from "../components/AddItem/AddItem";
 
 const GroceriesContainer = props => (
-  <div className="flex-row">
-    <div className="flex-large">
-      <h2>Add Groceries</h2>
-      <AddItemForm addItem={props.addItem} name="Groceries" />
-    </div>
-  </div>
+  <React.Fragment>
+    <AddItem name="Groceries" />
+    <ListContainer />
+  </React.Fragment>
 );
 
 export default GroceriesContainer;

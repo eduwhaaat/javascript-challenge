@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-const useGroceries = () => {
+export const useGroceries = () => {
   const initialGroceriesData = [
     { name: "oranges", amount: 1, fridge: "Fridge 1" },
     { name: "apples", amount: 1, fridge: "Fridge 2" },
@@ -30,4 +30,3 @@ const useGroceries = () => {
     }
   };
 };
-export default useGroceries;

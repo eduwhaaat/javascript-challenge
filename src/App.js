@@ -1,61 +1,27 @@
-import React, { useState } from "react";
+import React, { memo } from "react";
 // import logo from "./logo.svg";
 import "./App.css";
+import Layout from "./components/Layout";
+import { GroceriesProvider } from "./Context";
 import GroceriesContainer from "./container/GroceriesContainer";
-import FridgesContainer from "./container/FridgesContainer";
 
-import {useGroceries} from "./hooks"
-const App = () => {
-  const initialGroceriesData = [
-    { name: "oranges", amount: 1, fridge: "Fridge 1" },
-    { name: "apples", amount: 1, fridge: "Fridge 2" },
-    { name: "bananas", amount: 1, fridge: "Fridge 1" }
-  ];
-  const [groceries, setGroceries] = useGroceries(initialGroceriesData);
+const App = memo(props => {
 
-  const addItem = item => {
-    item.id = item.length + 1;
-    setGroceries([...groceries, item]);
-  };
+ /* 
+  const globalStore = usePersistedContext(useContext(Store));
 
-  return (
-    <div className="App">
-      <div className="container">
-        <h1>Shopping App</h1>
-        <GroceriesContainer addItem={addItem} groceries={groceries} />
-        <FridgesContainer addItem={addItem} groceries={groceries} />
-      </div>
-
-      {/* <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-        </header> */}
-    </div>
+  // `todos` will be a state manager to manage state.
+  const [state, dispatch] = usePersistedReducer(
+    useReducer(reducer, globalStore)
   );
-};
-
-/* 
-const InputText = props => {
-  const [value, setValue] = useState("");
+ */
   return (
-    <form
-      onSubmit={e => {
-        e.preventDefault();
-        props.handleSubmit(value);
-        setValue("");
-      }}
-    >
-      <input
-        type="text"
-        value={value}
-        onChange={e => setValue(e.target.value)}
-      />
-      <input
-        type="text"
-        value={value}
-        onChange={e => setValue(e.target.value)}
-      />
-    </form>
+    <GroceriesProvider>
+      <Layout>
+        <GroceriesContainer />
+      </Layout>
+    </GroceriesProvider>
   );
-}; */
+});
 
 export default App;

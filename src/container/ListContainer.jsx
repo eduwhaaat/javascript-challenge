@@ -1,17 +1,11 @@
 import React from "react";
+import GroceriesList from "../components/GroceriesList";
 
-const ListContainer = props => (
-  <ListDisplay
-    items={props.items}
-    handleClick={item => {
-      setItems(items.slice().filter(i => i !== item));
-    }}
-  />
-);
+const ListContainer = props => <GroceriesList />;
 
 export default ListContainer;
 
-/* 
+/* EXAMPLE
 import React from "react";
 const Container = props => {
 

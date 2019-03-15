@@ -16,14 +16,20 @@ const initialState = {
 const useGroceriesReducer = (state, action) => {
   switch (action.type) {
     case "ADD_GROCERIES":
-     /* // return current state if empty
-     if (!action.payload) {
+      // return current state if empty
+      if (!action.payload) {
         return state;
       }
-      // return current state if duplicate
+    /*   // return current state if duplicate
+      function userExists(action.payload) {
+        return state.groceries.some(function(el) {
+          return el.name === name;
+        });
+      } */
+
       if (state.groceries.includes(action.payload)) {
         return state;
-      } */
+      }
 
       return {
         ...state,
@@ -33,15 +39,15 @@ const useGroceriesReducer = (state, action) => {
       return {
         ...state,
         groceries: state.groceries.map(item => {
-            if (item === action.payload) {
-              if (item.amount >1) {
-                item.amount = item.amount - 1;
-              }              
+          if (item === action.payload) {
+            if (item.amount > 1) {
+              item.amount = item.amount - 1;
             }
+          }
 
-            return item;
-          })
-        }
+          return item;
+        })
+      };
 
     case "USEDALL_GROCERIES":
       return {
